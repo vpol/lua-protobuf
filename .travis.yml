@@ -9,8 +9,8 @@ env:
     - LUA="lua 5.1"
     - LUA="lua 5.2"
     - LUA="lua 5.3"
-    - LUA="luajit 2.0" CFLAGS="-I/usr/include/luajit-2.0"
-    - LUA="luajit 2.1" CFLAGS="-I/usr/include/luajit-2.1"
+    - LUA="luajit 2.0" LUA_FLAGS="-I/usr/include/luajit-2.0"
+    - LUA="luajit 2.1" LUA_FLAGS="-I/usr/include/luajit-2.1"
 
 branches:
   only:
@@ -24,7 +24,7 @@ before_install:
 
 install:
   # - sudo luarocks make $ROCKSPEC CFLAGS="-O2 -fPIC -ftest-coverage -fprofile-arcs" LIBFLAG="-shared --coverage"
-  - luarocks make $ROCKSPEC CFLAGS=$CFLAGS:"-O3 -fPIC -Wall -Wextra --coverage" LIBFLAG="-shared --coverage"
+  - luarocks make $ROCKSPEC CFLAGS="$LUA_FLAGS -O3 -fPIC -Wall -Wextra --coverage" LIBFLAG="-shared --coverage"
 
 script: 
   - lua test.lua
