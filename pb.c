@@ -275,7 +275,7 @@ static int lpb_hexchar(char ch) {
     return -1;
 }
 
-#ifdef luaL_newlib /* LuaJIT >= 2.1 */
+#ifdef LUAJIT_VERSION /* LuaJIT >= 2.1 */
 
 #include <lj_ctype.h>
 #include <lj_obj.h>
