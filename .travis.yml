@@ -16,6 +16,7 @@ branches:
   only:
     - master
     - new
+    - users/vpol/travis
 
 before_install:
   - pip install --user hererocks urllib3[secure] cpp-coveralls
