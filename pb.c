@@ -277,8 +277,8 @@ static int lpb_hexchar(char ch) {
 
 #ifdef LUA_LJDIR /* LuaJIT >= 2.1 */
 
-#include <lj_ctype.h>
-#include <lj_obj.h>
+#include <luajit/lj_ctype.h>
+#include <luajit/lj_obj.h>
 
 static uint64_t lpb_ljcdata_toint(lua_State *L, int idx, int *isint) {
 	if (idx < 0)
