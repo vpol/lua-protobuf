@@ -312,7 +312,7 @@ static uint64_t lpb_tointegerx(lua_State *L, int idx, int *isint) {
     if (*isint) return v;
 #else
     uint64_t v = 0;
-#ifdef luaL_newlib /* LuaJIT >= 2.1 */
+#ifdef LUAJIT_VERSION /* LuaJIT >= 2.1 */
     if (lua_type(L, idx) == LUA_TCDATA) {
 	    v = lpb_ljcdata_toint(L, idx, isint);
 	    if (*isint) return v;
